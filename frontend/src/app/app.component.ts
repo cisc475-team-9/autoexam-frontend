@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'frontend';
   afuConfig = {
     uploadAPI: {
-      url:"https://localhost:3000"
+      url:"http://localhost:2468/mbz"
     },
     formatsAllowed: ".mbz"
 };
