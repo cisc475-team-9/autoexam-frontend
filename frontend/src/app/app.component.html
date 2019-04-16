@@ -1,13 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="d-flex justify-content-center" style="text-align:center">
   <h1>
     Question Uploader
   </h1>
   <img width="200" alt="Angular Logo" src="/assets/UD.png">
-  <angular-file-uploader
-      [config]="afuConfig">
-</angular-file-uploader>
-
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="avatar">Upload a file in mbz format</label>
+      <input type="file" class="custom-file-input" (change)="onFileChange($event)" #fileInput>
+      <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
+    </div>
+    <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+  </form>
+  
 </div>
+
+{{result | json}}
 
 
